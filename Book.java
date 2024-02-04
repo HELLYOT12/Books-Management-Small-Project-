@@ -10,8 +10,11 @@ public class Book {
 	// المكتبة من الكتب الي يحددها المستخدم
 	private Book books[];
 	
-	private static int ArrayCounter = 0;
 	
+	
+	private static int ArrayCounter = 0;
+	private int sizeValue;
+
 	private static Scanner sc = new Scanner(System.in);
 	Book(){};
 	Book(String name , String author , String category){
@@ -22,9 +25,13 @@ public class Book {
 	
 	public void libarySize(int size) {
 		books = new Book[size];
+		 sizeValue = size;
+		 Initialization();
+
 	}
 	
 	public void addBook() {
+		Initialization();
 		Book book = new Book();
 		System.out.println("Enter the name Of the Book");
 		book.name = sc.next();
@@ -44,11 +51,10 @@ public class Book {
 	
 	public void editBook(String BookName) {
 		for (int i=0; i<books.length; i++) {
-			if (BookName == books[i].name) {
+			if (BookName.equalsIgnoreCase(books[i].name)) {
 				System.out.println("-1 to change Name");
 				System.out.println("-2 to change author Name");
 				System.out.println("-3 to change category");
-
 				int Option = sc.nextInt();
 				switch (Option) {
 				case 1:
@@ -66,9 +72,6 @@ public class Book {
 					default:System.out.println("Wrong Input");
 				   }
 				}
-			else {
-				System.out.println("No Matched Name");
-			}
 			}
 		}
 	
@@ -80,6 +83,13 @@ public class Book {
 			System.out.println(book);
 		}
 	}
+	
+	private void Initialization () {
+	for	(int i=0; i<sizeValue; i++){
+		books[i] = new Book("null" , "null" ,"null");
+	}
+		}
+
 	@Override
 	public String toString() {
 		return "Book [name=" + name + ", author=" + author + ", category=" + category + "]";
