@@ -27,11 +27,11 @@ public class Book {
 	public void addBook() {
 		Book book = new Book();
 		System.out.println("Enter the name Of the Book");
-		book.name = sc.next();
+		book.name = sc.nextLine();
 		System.out.println("Enter author name");
-		book.author = sc.next();
+		book.author = sc.nextLine();
 		System.out.println("Enter category");
-		book.category = sc.next();
+		book.category = sc.nextLine();
 		if (ArrayCounter > books.length) {
 			System.out.println("sorry The library is full");
 		}
