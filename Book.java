@@ -50,7 +50,8 @@ public class Book {
 	}
 	
 	public void editBook(String BookName) {
-		for (int i=0; i<books.length; i++) {
+		int i;
+		for ( i=0; i<books.length; i++) {
 			if (BookName.equalsIgnoreCase(books[i].name)) {
 				System.out.println("-1 to change Name");
 				System.out.println("-2 to change author Name");
@@ -73,6 +74,9 @@ public class Book {
 				   }
 				}
 			}
+				if (i+1 != books.length ) {
+			System.out.println("No matched Books"+"\n");
+		}
 		}
 	
 	
