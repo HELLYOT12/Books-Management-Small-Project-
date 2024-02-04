@@ -51,6 +51,10 @@ public class Book {
 	
 	public void editBook(String BookName) {
 		int i;
+		if (BookName.equalsIgnoreCase("null")){
+			System.out.println("Wrong Input Dear :)\n");
+			return;
+		}
 		for ( i=0; i<books.length; i++) {
 			if (BookName.equalsIgnoreCase(books[i].name)) {
 				System.out.println("-1 to change Name");
